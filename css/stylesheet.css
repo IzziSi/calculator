@@ -1,0 +1,70 @@
+button {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+}
+
+.calculator {
+    width: 400px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.screen {
+    width: 395px;
+}
+
+input {
+    width: 391px;
+    height: 100px;
+}
+
+#equal {
+    width: 200px;
+}
+
+@media screen and (max-width:600px) {
+    button {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+    }
+    .calculator {
+        width: 200px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+    }
+    .screen {
+        width: 195px;
+    }
+    input {
+        width: 191px;
+        height: 50px;
+    }
+    #equal {
+        width: 100px;
+    }
+}
+
+.screen {
+    border: 3px solid black;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    font-weight: 900;
+}
+
+input {
+    font-weight: 900;
+    font-size: 3rem;
+}
