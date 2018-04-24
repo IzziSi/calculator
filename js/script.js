@@ -5,8 +5,15 @@ var tempOperator = '';
 var results = '';
 var evalResults = 0;
 
+function clearedresults() {
+    clear();
+    document.getElementById('input').value = evalResults;
+}
 
 function inputNumber(number) {
+    if (evalResults != 0) {
+        clearedresults();
+    }
     if (tempOperator === '') {
         tempInput += number;
     } else {
@@ -39,13 +46,13 @@ function calculateInputOperator() {
         tempOperator = '';
     }
     for (var i = 0; i < input.length; i++) {
-        results += parseInt(input.shift());
+        results += parseFloat(input[i]);
         if (operator[i] != undefined) {
-            results += operator.shift();
+            results += operator[i];
         }
-        evalResults = eval(results);
-        document.getElementById('input').value = evalResults;
     }
+    evalResults = eval(results);
+    document.getElementById('input').value = evalResults;
 }
 
 function evaluated() {
@@ -59,11 +66,6 @@ function clear() {
     tempOperator = '';
     results = '';
     evalResults = 0;
-}
-
-function clearedresults() {
-    clear();
-    document.getElementById('input').value = evalResults;
 }
 
 function delButton() {
