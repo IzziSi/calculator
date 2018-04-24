@@ -3,6 +3,8 @@ var operator = [];
 var tempInput = '';
 var tempOperator = '';
 var results = '';
+var evalResults = 0;
+
 
 function inputNumber(number) {
     if (tempOperator === '') {
@@ -17,17 +19,16 @@ function inputNumber(number) {
 
 function inputOperator(operator) {
     if (tempInput === '') {
-        tempOperator += operator;
+        tempOperator = operator;
     } else {
         input.push(tempInput);
         tempInput = '';
-        tempOperator += operator;
+        tempOperator = operator;
     }
     document.getElementById('input').value = tempOperator;
 }
 
 
-//Does not work - fix
 function calculateInputOperator() {
     if (tempInput != '') {
         input.push(tempInput);
@@ -36,12 +37,39 @@ function calculateInputOperator() {
     if (tempOperator != '') {
         operator.push(tempOperator);
         tempOperator = '';
-    }   
+    }
     for (var i = 0; i < input.length; i++) {
         results += parseInt(input.shift());
         if (operator[i] != undefined) {
             results += operator.shift();
         }
-        document.getElementById('input').value = eval(results);
+        evalResults = eval(results);
+        document.getElementById('input').value = evalResults;
     }
 }
+
+function evaluated() {
+    calculateInputOperator();
+}
+
+function clear() {
+    input.length = 0;
+    operator.length = 0;
+    tempInput = '';
+    tempOperator = '';
+    results = '';
+    evalResults = 0;
+}
+
+function clearedresults() {
+    clear();
+    document.getElementById('input').value = evalResults;
+}
+
+function delButton() {
+    tempInput = tempInput.slice(0, -1);
+    document.getElementById('input').value = tempInput;
+}
+
+
+document.getElementById('input').value = evalResults;
