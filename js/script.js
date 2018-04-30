@@ -5,6 +5,8 @@ var tempOperator = '';
 var results = '';
 var evalResults = 0;
 
+
+
 function clearedresults() {
     clear();
     document.getElementById('input').value = evalResults;
